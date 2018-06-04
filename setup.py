@@ -10,5 +10,5 @@ setup(name='extractCMRRPhysio',
           'console_scripts': [
               'extractCMRRPhysio = extractCMRRPhysio.main:run']},
       packages=['extractCMRRPhysio'],
-      install_requires=['pydicom']
+      install_requires=['pydicom'],
       zip_safe=False)
