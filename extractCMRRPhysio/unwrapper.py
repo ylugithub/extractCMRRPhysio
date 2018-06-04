@@ -31,8 +31,8 @@ class Unwrapper():
         output_path = '/path/to/output/'
 
     Usage:
-        cmrr_unwrapper = CMRR_MB_UNWRAPER(dicom_filename, output_path)
-        cmrr_unwrapper.unwrap()
+        unwrapper = Unwrapper(dicom_filename, output_path)
+        unwrapper.apply()
 
     note:
         write *.log files to output_path
