@@ -59,6 +59,11 @@ class Unwrapper():
             dataset = pydicom.read_file(self.filename, stop_before_pixels=True)
 
             image_type = dataset.ImageType
+            
+            if (0x7fe1, 0x0010) not in dataset:
+                logging.info('(0x7fe1, 0x0010) not found in {}'.format(self.filename))
+                return
+
             private_7fe1_0010_value = str(dataset[(0x7fe1, 0x0010)].value)
 
             if image_type == ['ORIGINAL', 'PRIMARY', 'RAWDATA', 'PHYSIO'] and \
