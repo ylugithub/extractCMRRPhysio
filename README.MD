@@ -1,5 +1,5 @@
 # CMRR-MB in Python
-matlab code: https://github.com/CMRR-C2P/MB
+orginal matlab code: https://github.com/CMRR-C2P/MB
 
 usage:
 ```bash
