@@ -1,6 +1,3 @@
-# tests codes
-tests/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -56,6 +53,9 @@ coverage.xml
 
 # Django stuff:
 *.log
+# test data
+!Physio*.log
+
 local_settings.py
 db.sqlite3
 
