@@ -37,14 +37,14 @@ class Unwrapper:
     note:
         write *.log files to output_path
 
-    
+
     '''
 
-    def __init__(self,filename,output_path):
+    def __init__(self, filename, output_path):
         self.filename = filename
         self.output_path = output_path
         self.logger = logging.getLogger(__name__)
-    
+
     def apply(self):
         '''
         unwrap
@@ -60,7 +60,7 @@ class Unwrapper:
             image_type = dataset.ImageType
             private_7fe1_0010_value = dataset[(0x7fe1, 0x0010)].value
 
-            #is SIEMENS physio data?
+            # is SIEMENS physio data?
             if image_type == ['ORIGINAL', 'PRIMARY', 'RAWDATA', 'PHYSIO'] and \
                     private_7fe1_0010_value.strip() == 'SIEMENS CSA NON-IMAGE':
 
@@ -76,9 +76,9 @@ class Unwrapper:
                     return
 
                 parts = [private_7fe1_1010_value[i:i+np/numFiles]
-                        for i in range(0, np, np/numFiles)]
+                         for i in range(0, np, np/numFiles)]
 
-                full_log_filenames=[]
+                full_log_filenames = []
                 endian = sys.byteorder
                 for part in parts:
 
@@ -93,13 +93,14 @@ class Unwrapper:
                     log_data = part[1024:1024+datalen]
 
                     # write log file
-                    full_log_filename = os.path.join(self.output_path, log_filename)
+                    full_log_filename = os.path.join(
+                        self.output_path, log_filename)
                     self.logger.info('writing {}'.format(full_log_filename))
                     with open(full_log_filename, 'w') as f:
-                        f.write(log_data,newline='\n')
+                        f.write(log_data)
 
                     full_log_filenames.append(full_log_filename)
-        
+
             return full_log_filenames
 
         except KeyError as e:
