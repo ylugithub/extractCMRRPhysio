@@ -35,6 +35,7 @@ jobs:
           name: build and upload to PyPI
           command: |
             sudo python setup.py sdist bdist_wheel
+            # Continue uploading files if one already exists
             twine upload --skip-existing dist/*
 
 
