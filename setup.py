@@ -3,7 +3,7 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = "0.1"
+VERSION = "0.1.1"
 setuptools.setup(name='extractCMRRPhysio',
                  version=VERSION,
                  description='extractCMRRPhysio.m(https://github.com/CMRR-C2P/MB/blob/master/extractCMRRPhysio.m) in Python',
